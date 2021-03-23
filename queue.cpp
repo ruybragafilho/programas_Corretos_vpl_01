@@ -24,7 +24,7 @@ void Queue::push(int k) {
 
 void Queue::pop() {
 
-    if( !this->count_ ) throw EmptyException();
+    if( !this->count_) throw EmptyException();
 
     Node* aux = this->front_;
     this->front_ = this->front_->next;
@@ -35,7 +35,7 @@ void Queue::pop() {
 
 int Queue::front() const {
 
-    if( !this->count_ ) throw EmptyException();
+    if( !this->count_) throw EmptyException();
 
     return this->front_->next->key;
 }
@@ -43,7 +43,7 @@ int Queue::front() const {
 
 int Queue::back() const {
 
-    if( !this->count_ ) throw EmptyException();  
+    if( !this->count_) throw EmptyException();  
 
     return this->back_->key;
 }

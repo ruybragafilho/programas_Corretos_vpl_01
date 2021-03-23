@@ -5,26 +5,51 @@ struct Node {
   Node* next;
 };
 
-Queue::Queue() {
-  // TODO
+
+
+Queue::Queue() {  
+
+    this->front_ = this->back_ = new Node{0, nullptr};   
+    this->count_ = 0; 
 }
+
 
 void Queue::push(int k) {
-  // TODO
+
+    this->back_->next = new Node{k, nullptr};
+    this->back_ = this->back_->next;
+    ++(this->count_);
 }
+
 
 void Queue::pop() {
-  // TODO
+
+    if( !this->count_ ) throw EmptyException();
+
+    Node* aux = this->front_;
+    this->front_ = this->front_->next;
+    delete(aux);
+    --(this->count_);
 }
+
 
 int Queue::front() const {
-  return 0; // TODO
+
+    if( !this->count_ ) throw EmptyException();
+
+    return this->front_->next->key;
 }
+
 
 int Queue::back() const {
-  return 0; // TODO
+
+    if( !this->count_ ) throw EmptyException();  
+
+    return this->back_->key;
 }
 
+
 int Queue::count() const {
-  return 0; // TODO
+
+  return this->count_;
 }
